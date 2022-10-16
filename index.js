@@ -16,7 +16,7 @@ const Text = mongoose.model("Text", {
 });
 
 //// GET
-app.get("/get", async (req, res) => {
+app.get("/", async (req, res) => {
 	try {
 		const textInput = await Text.find();
 		res.json({ message: textInput });
@@ -55,6 +55,6 @@ app.post("/post", async (req, res) => {
 });
 
 // Remarquez que le `app.listen` doit se trouver après les déclarations des routes
-app.listen(process.env.PORT | 3100, () => {
+app.listen(process.env.PORT || 3100, () => {
 	console.log("Server has started");
 });
